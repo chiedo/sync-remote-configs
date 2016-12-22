@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"github.com/mitchellh/go-homedir"
 	"os"
 	"os/exec"
 	"strings"
@@ -20,14 +21,13 @@ var excludePatterns = []string{}
 var wg sync.WaitGroup
 
 func main() {
+	homeDir, err := homedir.Dir()
 	//
 	// Add exclusions from file
 	//
-	exclusionsFile, err := os.Open(".exclusions")
+	exclusionsFile, err := os.Open(homeDir + "/.sync-remote-configs/exclusions")
 	if err != nil {
-		fmt.Println("Please create a .exclusions file and add each source on it's own line, an example .exclusions file is below")
-		fmt.Println(".git/*")
-		fmt.Println("bundle/YouCompleteMe/*")
+		fmt.Println("Please create a exclusions file. See README")
 	}
 	defer exclusionsFile.Close()
 
@@ -40,18 +40,16 @@ func main() {
 	}
 
 	if err := exclusionsScanner.Err(); err != nil {
-		fmt.Println("There is an error with your .exclusions file")
+		fmt.Println("There is an error with your exclusions file")
 		fmt.Println(err)
 	}
 
 	//
 	// Add sources from file
 	//
-	sourcesFile, err := os.Open(".sources")
+	sourcesFile, err := os.Open(homeDir + "/.sync-remote-configs/sources")
 	if err != nil {
-		fmt.Println("Please create a .sources file and add each source on it's own line, an example .sources file is below")
-		fmt.Println("/Users/bob/.vim")
-		fmt.Println("/Users/bob/.tmux.conf")
+		fmt.Println("Please create a sources file. See README")
 	}
 	defer sourcesFile.Close()
 
@@ -64,18 +62,16 @@ func main() {
 	}
 
 	if err := sourcesScanner.Err(); err != nil {
-		fmt.Println("There is an error with your .sources file")
+		fmt.Println("There is an error with your sources file")
 		fmt.Println(err)
 	}
 
 	//
 	// Add destinations from file
 	//
-	destinationsFile, err := os.Open(".destinations")
+	destinationsFile, err := os.Open(homeDir + "/.sync-remote-configs/destinations")
 	if err != nil {
-		fmt.Println("Please create a .destinations file and add each destination on it's own line, an example .destinations file is below")
-		fmt.Println("hello@world.com")
-		fmt.Println("bye@bye.com")
+		fmt.Println("Please create a destinations file. See README")
 	}
 	defer destinationsFile.Close()
 
