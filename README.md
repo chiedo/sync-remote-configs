@@ -2,6 +2,8 @@
 
 A tool to keep your remote users in sync with your local configurations for things like vim and git.
 
+Very beta.. I really just made it for me so don't be surprised if the tool frustates you.
+
 1. Install or updated by running this
 
     `wget -O /usr/local/bin/sync-remote-configs https://github.com/chiedo/sync-remote-configs/raw/master/sync-remote-configs?date=$(date +%s) && chmod +x /usr/local/bin/sync-remote-configs`
