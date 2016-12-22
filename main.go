@@ -140,6 +140,8 @@ func run_rsync(dest map[string]string) {
 	for _, excludePattern := range excludePatterns {
 		cmdArgs = append(cmdArgs, "--exclude")
 		cmdArgs = append(cmdArgs, excludePattern)
+		cmdArgs = append(cmdArgs, "-e")
+		cmdArgs = append(cmdArgs, "ssh -o StrictHostKeyChecking=no")
 	}
 	cmdArgs = append(cmdArgs, ssh)
 
