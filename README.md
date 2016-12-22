@@ -4,7 +4,7 @@ A tool to keep your remote users in sync with your local configurations for thin
 
 1. Install or updated by running this
 
-    `wget -O /usr/local/bin/sync-remote-configs https://github.com/chiedo/sync-remote-configs/raw/master/sync-remote-configs && chmod +x /usr/local/bin/sync-remote-configs`
+    `wget -O /usr/local/bin/sync-remote-configs https://github.com/chiedo/sync-remote-configs/raw/master/sync-remote-configs?date=$(date +%s) && chmod +x /usr/local/bin/sync-remote-configs`
     
 2. Create a `~/.sync-remote-configs/destinations` file in the repo
     - Each line must be in `username@domain` format
