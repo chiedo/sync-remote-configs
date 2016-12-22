@@ -23,3 +23,8 @@ A tool to keep your remote users in sync with your local configurations for thin
 
 - Test by making changes to `main.go` and running `go run main.go`
 - Build by running `go build`
+
+# Gotchas
+
+- You have to have already successfully connected to a server before using this tool and if you get a known_host verification failure, things will break.
+- I could turn off the strict host checking but it seems like the wrong move from a security perspective...
