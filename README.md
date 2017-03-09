@@ -26,7 +26,6 @@ Very beta.. I really just made it for me so don't be surprised if the tool frust
 - Test by making changes to `main.go` and running `go run main.go`
 - Build by running `go build`
 
-# Gotchas
+# SECURITY NOTICE
 
-- You have to have already successfully connected to a server before using this tool and if you get a known_host verification failure, things will break.
-- I could turn off the strict host checking but it seems like the wrong move from a security perspective...
+- Known_host verification is turned off so do not use this for transmitting sensitive data.

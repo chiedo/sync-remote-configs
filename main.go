@@ -140,9 +140,10 @@ func run_rsync(dest map[string]string) {
 	for _, excludePattern := range excludePatterns {
 		cmdArgs = append(cmdArgs, "--exclude")
 		cmdArgs = append(cmdArgs, excludePattern)
-		// This removes the annoyance of the host checking errors but is less secure... hmm...
-		//cmdArgs = append(cmdArgs, "-e")
-		//cmdArgs = append(cmdArgs, "ssh -o StrictHostKeyChecking=no")
+		// This removes the annoyance of the host checking errors but is less secure...
+		// As long as you're not scping sensitive data, this is fine
+		cmdArgs = append(cmdArgs, "-e")
+		cmdArgs = append(cmdArgs, "ssh -o StrictHostKeyChecking=no")
 	}
 	cmdArgs = append(cmdArgs, ssh)
 
